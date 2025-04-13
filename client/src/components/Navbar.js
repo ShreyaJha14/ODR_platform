@@ -27,6 +27,8 @@ const Navbar = () => {
           <Typography variant="h6" className={classes.title} component={Link} to="/">
             ODR Platform
           </Typography>
+          <Button component={Link} to="../LoginForm/LoginForm" className={classes.navButton}>Login</Button>
+          <Button component={Link} to="/About" className={classes.navButton}>About Us</Button>
           <Button component={Link} to="/submit-case" className={classes.navButton}>
             Submit Case
           </Button>
@@ -37,6 +39,7 @@ const Navbar = () => {
             Mediation
           </Button>
           <Button component = {Link} to="/Contact" className={classes.navButton}>Contact Us</Button>
+          
         </Toolbar>
       </AppBar>
     </div>

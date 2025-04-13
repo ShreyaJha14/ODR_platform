@@ -25,7 +25,7 @@ const Wrapper = styled.div`
 
 const Left = styled.div`
   flex: 1;
-  background: linear-gradient(144deg, rgba(126,39,156,1) 0%, rgba(49,39,157,1) 49%);
+  background: linear-gradient(144deg, rgba(126,39,156,1) 0%, rgb(54, 118, 228) 49%);
   color: white;
   padding: 40px;
   display: flex;
@@ -119,7 +119,7 @@ const Right = styled.div`
     button {
       flex: 1 1 100%;
       padding: 18px;
-      background: #f55472;
+      background: rgb(54, 118, 228);
       color: white;
       font-size: 18px;
       font-weight: bold;
@@ -130,7 +130,7 @@ const Right = styled.div`
       transition: 0.3s ease;
 
       &:hover {
-        background: #e24060;
+        background:#f55472;
       }
     }
   }

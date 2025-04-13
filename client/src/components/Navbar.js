@@ -35,9 +35,14 @@ const Navbar = () => {
           <Button component={Link} to="/my-cases" className={classes.navButton}>
             My Cases
           </Button>
-          <Button component={Link} to="/mediation" className={classes.navButton}>
-            Mediation
-          </Button>
+          <Button 
+  component={Link} 
+  to="/mediation" 
+  className={classes.navButton}
+>
+  Mediation
+</Button>
+           
           <Button component = {Link} to="/Contact" className={classes.navButton}>Contact Us</Button>
           
         </Toolbar>

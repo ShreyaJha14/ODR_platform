@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { FaPhoneAlt, FaPaperPlane, FaGlobe, FaFacebook, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaPaperPlane,
+  FaGlobe,
+  FaFacebook,
+  FaTwitter,
+  FaLinkedinIn,
+} from "react-icons/fa";
 
 const Container = styled.div`
   background: #000718;
@@ -25,7 +32,11 @@ const Wrapper = styled.div`
 
 const Left = styled.div`
   flex: 1;
-  background: linear-gradient(144deg, rgba(126,39,156,1) 0%, rgb(54, 118, 228) 49%);
+  background: linear-gradient(
+    144deg,
+    rgba(126, 39, 156, 1) 0%,
+    rgb(54, 118, 228) 49%
+  );
   color: white;
   padding: 40px;
   display: flex;
@@ -100,13 +111,14 @@ const Right = styled.div`
     flex-wrap: wrap;
     gap: 20px;
 
-    input, textarea {
+    input,
+    textarea {
       flex: 1 1 45%;
       padding: 15px;
       border: none;
       border-radius: 25px;
       box-shadow: inset -3px -3px 7px #ffffff73,
-                  inset 3px 3px 5px #c4c4c4;
+        inset 3px 3px 5px #c4c4c4;
       font-size: 16px;
     }
 
@@ -130,40 +142,114 @@ const Right = styled.div`
       transition: 0.3s ease;
 
       &:hover {
-        background:#f55472;
+        background: #f55472;
       }
     }
   }
 `;
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Thank you! Your message has been sent.");
+    // Optionally reset form
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
     <Container>
       <Wrapper>
         <Left>
           <div>
             <h2>Contact Information</h2>
-            <p>Fill up the form and our Team will get back to you within 24 hours</p>
+            <p>
+              Fill up the form and our Team will get back to you within 24
+              hours
+            </p>
             <ul>
-              <li><FaPhoneAlt /> Phone: 9191******</li>
-              <li><FaPaperPlane /> Email: meeh.shreya.jha@gmail.com</li>
-              <li><FaGlobe /> Website: yoursite.com</li>
+              <li>
+                <FaPhoneAlt /> Phone: 9191******
+              </li>
+              <li>
+                <FaPaperPlane /> Email: meeh.shreya.jha@gmail.com
+              </li>
+              <li>
+                <FaGlobe /> Website: yoursite.com
+              </li>
             </ul>
           </div>
           <div className="socials">
-            <a href="#"><FaFacebook /></a>
-            <a href="#"><FaTwitter /></a>
-            <a href="#"><FaLinkedinIn /></a>
+            <a href="#">
+              <FaFacebook />
+            </a>
+            <a href="#">
+              <FaTwitter />
+            </a>
+            <a href="#">
+              <FaLinkedinIn />
+            </a>
           </div>
         </Left>
         <Right>
           <h2>Send us a message</h2>
-          <form>
-            <input type="text" placeholder="First Name" />
-            <input type="text" placeholder="Last Name" />
-            <input type="email" placeholder="Mail" />
-            <input type="text" placeholder="Phone" />
-            <textarea placeholder="Write your message" />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              value={formData.firstName}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              value={formData.lastName}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Mail"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Write your message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            />
             <button type="submit">Send Message</button>
           </form>
         </Right>
